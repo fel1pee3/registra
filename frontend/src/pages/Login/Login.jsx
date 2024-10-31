@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import imageLogo from "../../../images/logo-registra.png"
+import './Login.css'
 
 const Login = () => {
 
@@ -29,22 +31,23 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input type="email" placeholder='Enter Email'  name='email' onChange={handleChanges}/>
+    <div className='componentLogin'>
+      <div className='containerLogin'>
+      <div className='caixaLogo'><img className='logoImg' src={imageLogo}   alt="logoIcon" /><h1 className='logoText'>Registra</h1></div>
+        <form onSubmit={handleSubmit} className='formLogin'>
+          <div className='caixaImput'>
+            <label className='label' htmlFor="email">Email</label>
+            <input type="email" placeholder='Enter Email'  name='email' onChange={handleChanges} className='input'/>
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" placeholder='Enter Password'  name='password' onChange={handleChanges}/>
+          <div className='caixaImput'>
+            <label className='label' htmlFor="password">Password</label>
+            <input type="password" placeholder='Enter Password'  name='password' onChange={handleChanges} className='input'/>
           </div>
-          <button>Submit</button>
+          <button className='btn'>Login</button>
         </form>
-        <div>
-          <p>Don't Have Account?</p>
-          <Link to='/Register'>Register</Link>
+        <div className='caixaMore'>
+          <p className='pMore'>Don't Have Account?</p>
+          <Link to='/Register' className='linkMore'>Register</Link>
         </div>
       </div>
     </div>

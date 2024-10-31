@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import imageLogo from "../../../images/logo-registra.png"
+import './Register.css'
 
 const Register = () => {
 
@@ -29,26 +31,27 @@ const Register = () => {
   }
 
   return (
-    <div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username</label>
-            <input type="text" placeholder='Enter Username'  name='username' onChange={handleChanges}/>
+    <div className='componentRegister'>
+      <div className='containerRegister'>
+        <div className='caixaLogo'><img className='logoImg' src={imageLogo}     alt="logoIcon" /><h1 className='logoText'>Registra</h1></div>
+        <form className='formRegister' onSubmit={handleSubmit}>
+          <div className='caixaImput'>
+            <label htmlFor="username" className='label'>Seu nome</label>
+            <input type="text" placeholder='Nome Sobrenome'  name='username' onChange={handleChanges} className='input'/>
           </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input type="email" placeholder='Enter Email'  name='email' onChange={handleChanges}/>
+          <div className='caixaImput'>
+            <label htmlFor="email" className='label'>Email</label>
+            <input type="email" placeholder='email@gmail.com'  name='email' onChange={handleChanges} className='input'/>
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" placeholder='Enter Password'  name='password' onChange={handleChanges}/>
+          <div className='caixaImput'>
+            <label htmlFor="password" className='label'>Password</label>
+            <input type="password" placeholder='senha@12345'  name='password' onChange={handleChanges} className='input'/>
           </div>
-          <button>Submit</button>
+          <button className='btn'>Cadastrar</button>
         </form>
-        <div>
-          <p>Already Have Account?</p>
-          <Link to='/Login'>Login</Link>
+        <div className='caixaMore'>
+          <p className='pMore'>Already Have Account?</p>
+          <Link className='linkMore' to='/Login'>Login</Link>
         </div>
       </div>
     </div>

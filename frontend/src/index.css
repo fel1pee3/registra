@@ -1,0 +1,18 @@
+:root{
+    --color1: #005CAA;
+    --gray: #A6A6A6;
+    --white1: #F2F2F2;
+    --black: #000;
+    --white2: #ffffff;
+
+    --font-global: "Poppins", sans-serif;
+    --font-logo: "Bebas Neue", sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-global);
+    transition: all ease .4s;
+}
