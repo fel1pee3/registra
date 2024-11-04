@@ -1,0 +1,30 @@
+.caixaLogo{
+    display: flex;
+    align-items: end;
+    gap: 4px;
+}
+
+.logoImg{
+    padding-bottom: 13px;
+    width: 40px;
+}
+
+.logoText{
+    color: var(--color1);
+    text-transform: uppercase;
+    font-family: var(--font-logo);
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+nav Link {
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+  }
+  
+  nav Link.active {
+    color: blue;
+    font-weight: bold;
+    border-bottom: 2px solid blue;
+  }

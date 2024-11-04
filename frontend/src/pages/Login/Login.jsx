@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import imageLogo from "../../../images/logo-registra.png"
+import Logo from '../../components/Logo/Logo'
 import './Login.css'
 
 const Login = () => {
@@ -31,9 +31,9 @@ const Login = () => {
   }
 
   return (
-    <div className='componentLogin'>
+    <div className='pageLogin'>
       <div className='containerLogin'>
-      <div className='caixaLogo'><img className='logoImg' src={imageLogo}   alt="logoIcon" /><h1 className='logoText'>Registra</h1></div>
+      <Logo />
         <form onSubmit={handleSubmit} className='formLogin'>
           <div className='caixaImput'>
             <label className='label' htmlFor="email">Email</label>

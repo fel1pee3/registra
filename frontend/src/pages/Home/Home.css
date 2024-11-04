@@ -1,0 +1,22 @@
+.pageHome{
+    width: 100vw;
+    display: flex;
+    gap: 20px;
+}
+
+.containerHome{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.msgUser{
+    font-size: 2.5em;
+    font-weight: 400;
+}
+
+.msgUser span{
+    font-size: em;
+    font-weight: 600;
+    color: var(--color1);
+}
