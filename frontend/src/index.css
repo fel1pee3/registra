@@ -16,3 +16,7 @@
     font-family: var(--font-global);
     transition: all ease .4s;
 }
+
+html{
+    overflow-x: hidden;
+}

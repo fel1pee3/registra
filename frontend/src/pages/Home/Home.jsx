@@ -38,7 +38,6 @@ const Home = () => {
       <Header />
       <div className="containerHome">
         <h1 className='msgUser'>Bem vindo, <span>{userName}</span></h1>
-        <CardInfoUser />
       </div>
     </div>
   );
