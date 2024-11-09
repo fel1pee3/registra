@@ -11,7 +11,7 @@ import Logo from '../Logo/Logo';
 const Header = () => {
   return (
     <header className='componentHeader'>
-      <Logo />
+      
       <nav className='containerLinksNavigate'>
         <NavLink className={({ isActive }) => `linkNavigate ${isActive ? 'active' : ''}`} to='/'>
           <GoHomeFill className='iconLinkNavigate' />

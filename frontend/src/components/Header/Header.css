@@ -57,3 +57,32 @@
     color: var(--gray);
     font-weight: 500;
 }
+
+@media (max-width: 999px) {
+
+    .componentHeader {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        flex-direction: row;
+        padding: 10px 15px;
+    }
+
+    .containerLinksNavigate{
+        flex-direction: row;
+        gap: 5px;
+    }
+    
+    .linkNavigate{
+        flex-direction: column;
+        gap: 0px;
+        padding: 5px;
+    }
+    
+    .linkNavigate p{
+        font-size: .7em;
+    }
+
+}

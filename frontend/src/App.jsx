@@ -7,6 +7,7 @@ import Occurrences from './pages/Occurrences/Occurrences'
 import Search from './pages/Search/Search'
 import ReportsCreated from './pages/reportsCreated/reportsCreated'
 import Profile from './pages/Profile/Profile'
+import AddRegister from './pages/AddRegister/AddRegister'
 
 
 const App = () => {
@@ -17,9 +18,11 @@ const App = () => {
         <Route path='/register' element={<Register />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/occurrences' element={<Occurrences />}></Route>
+        <Route path='/addRegister' element={<AddRegister />}></Route>
         <Route path='/search' element={<Search />}></Route>
         <Route path='/reportsCreated' element={<ReportsCreated />}></Route>
         <Route path='/profile' element={<Profile />}></Route>
+
       </Routes>
     </BrowserRouter>
   )

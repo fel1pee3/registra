@@ -2,11 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import CardInfoUser from '../../components/CardInfoUser/CardInfoUser';
 import './Home.css'
 
 const Home = () => {
-  const [userName, setUserName] = useState(''); // Estado para armazenar o nome do usuário
+  const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
   const fetchUser = async () => {
@@ -19,7 +18,7 @@ const Home = () => {
       });
 
       if (response.status === 201) {
-        setUserName(response.data.user.username); // Acessa o username do usuário retornado
+        setUserName(response.data.user.username);
       } else {
         navigate('/login');
       }
