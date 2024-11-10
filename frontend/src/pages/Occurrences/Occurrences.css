@@ -22,15 +22,14 @@
     font-weight: 500;
 }
 
-.iconAddRegister{
+.iconAddOccurrence{
     background-color: var(--white1);
     border-radius: 50%;
     font-size: 1.8em;
     color: var(--color1);
 }
 
-
-.iconAddRegister:hover{
+.iconAddOccurrence:hover{
     transform: scale(1.1);
 }
 

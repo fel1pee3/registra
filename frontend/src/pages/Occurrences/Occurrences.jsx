@@ -9,7 +9,10 @@ const Occurrences = () => {
     <div className='pageOccurrences'>
       <Header />
       <div className='containerOccurrences'>
-        <div className='startPage'><span>Registros</span><Link to='/addRegister'><IoMdAdd className='iconAddRegister'/></Link></div>
+        <div className='startPage'>
+          <span>Registros</span>
+          <Link to='/addOccurrence'><IoMdAdd className='iconAddOccurrence'/></Link>
+        </div>
       </div>
     </div>
   )

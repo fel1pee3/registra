@@ -1,0 +1,34 @@
+.pageAddOccurrence{
+    width: 100vw;
+    display: flex;
+}
+
+.containerAddOccurrence{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 30px 30px 30px;
+}
+
+.caixaStart{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.arrowLeft{
+    background-color: var(--white1);
+    border-radius: 50%;
+    font-size: 1.8em;
+    color: var(--color1);
+}
+
+.arrowLeft:hover{
+    transform: scale(1.1);
+}
+
+.caixaStart h1{
+    font-size: 2.5em;
+    font-weight: 500;
+}
