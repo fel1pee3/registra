@@ -32,3 +32,78 @@
     font-size: 2.5em;
     font-weight: 500;
 }
+
+.formRegisterOccurrence{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.caixaInput{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.label{
+    margin-left: 20px;
+}
+
+.input{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--gray);
+    outline: 0;
+}
+
+.caixaDividir{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+input[type="date"] {
+    width: 100%;
+}
+
+input[type="time"] {
+    width: 100%;
+}
+
+textarea{
+    max-width: 100%;
+    height: auto;
+}
+
+.btn{
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--color1);
+    color: var(--white2);
+    font-size: 1em;
+    font-weight: 500;
+    opacity: 88%;
+}
+
+.btn:hover{
+    opacity: 100%;
+}
+
+@media (max-width: 750px) {
+
+    .caixaStart{
+        gap: 30px;
+    }
+
+    .caixaStart h1{
+        font-size: 1.5em;
+    }
+
+}

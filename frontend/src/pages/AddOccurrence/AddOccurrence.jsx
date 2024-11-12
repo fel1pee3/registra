@@ -83,23 +83,25 @@ const AddOccurrence = () => {
               className="input"
             />
           </div>
-          <div className="caixaInput">
-            <label htmlFor="date_register" className="label">Data</label>
-            <input
-              type="date"
-              name="date_register"
-              onChange={handleChanges}
-              className="input"
-            />
-          </div>
-          <div className="caixaInput">
-            <label htmlFor="time_register" className="label">Hora</label>
-            <input
-              type="time"
-              name="time_register"
-              onChange={handleChanges}
-              className="input"
-            />
+          <div className="caixaDividir">
+            <div className="caixaInput">
+              <label htmlFor="date_register" className="label">Data</label>
+              <input
+                type="date"
+                name="date_register"
+                onChange={handleChanges}
+                className="input"
+              />
+            </div>
+            <div className="caixaInput">
+              <label htmlFor="time_register" className="label">Hora</label>
+              <input
+                type="time"
+                name="time_register"
+                onChange={handleChanges}
+                className="input"
+              />
+            </div>
           </div>
           <div className="caixaInput">
             <label htmlFor="class_register" className="label">Classe</label>

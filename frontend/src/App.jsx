@@ -5,9 +5,10 @@ import Register from './pages/Register/Register'
 import Login from './pages/Login/Login'
 import Occurrences from './pages/Occurrences/Occurrences'
 import Search from './pages/Search/Search'
-import ReportsCreated from './pages/reportsCreated/reportsCreated'
+import ReportsCreated from './pages/ReportsCreated/ReportsCreated'
 import Profile from './pages/Profile/Profile'
 import AddOccurrence from './pages/AddOccurrence/AddOccurrence'
+import AddReport from './pages/AddReports/AddReport'
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/addOccurrence' element={<AddOccurrence />}></Route>
         <Route path='/search' element={<Search />}></Route>
         <Route path='/reportsCreated' element={<ReportsCreated />}></Route>
+        <Route path='/addReport' element={<AddReport />}></Route>
         <Route path='/profile' element={<Profile />}></Route>
 
       </Routes>
