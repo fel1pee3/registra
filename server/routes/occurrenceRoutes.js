@@ -38,4 +38,18 @@ router.get('/registers', verifyToken, async (req, res) => {
     }
 });
 
+router.get('/count', verifyToken, async (req, res) => {
+    try {
+        const db = await connectToDatabase();
+        const query = 'SELECT COUNT(*) AS total FROM registers WHERE user_registration = ?';
+        const [rows] = await db.query(query, [req.userId]);
+        const totalRecords = rows[0].total;
+
+        return res.status(200).json({ totalRecords });
+    } catch (err) {
+        console.error('Erro ao contar registros:', err);
+        return res.status(500).json({ message: "Erro no servidor" });
+    }
+});
+
 export default router

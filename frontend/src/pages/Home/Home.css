@@ -17,7 +17,6 @@
 }
 
 .msgUser span{
-    font-size: em;
     font-weight: 600;
     color: var(--color1);
 }
@@ -30,6 +29,24 @@
         flex-direction: column;
         gap: 20px;
         padding: 30px;
+    }
+
+}
+
+@media (max-width: 750px) {
+    
+    .msgUser{
+        font-size: 2em;
+        font-weight: 400;
+    }
+
+}
+
+@media (max-width: 450px) {
+    
+    .msgUser{
+        font-size: 1.6em;
+        font-weight: 400;
     }
 
 }
