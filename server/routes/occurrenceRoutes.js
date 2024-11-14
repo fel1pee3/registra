@@ -24,7 +24,7 @@ router.post('/addOccurrence', verifyToken, async (req, res) => {
 router.get('/registers', verifyToken, async (req, res) => {
     try {
         const db = await connectToDatabase();
-        const query = 'SELECT * FROM registers WHERE user_registration = ?';
+        const query = 'SELECT * FROM registers WHERE user_registration = ? ORDER BY date_register DESC';
         const [rows] = await db.query(query, [req.userId]);
 
         if (rows.length === 0) {

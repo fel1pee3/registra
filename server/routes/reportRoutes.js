@@ -24,7 +24,7 @@ router.post('/addReport', verifyToken, async (req, res) => {
 router.get('/reports', verifyToken, async (req, res) => {
     try {
         const db = await connectToDatabase();
-        const query = 'SELECT * FROM reports WHERE reporting_user = ?';
+        const query = 'SELECT * FROM reports WHERE reporting_user = ? ORDER BY date_report DESC';
         const [rows] = await db.query(query, [req.userId]);
 
         if (rows.length === 0) {

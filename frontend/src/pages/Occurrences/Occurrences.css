@@ -33,6 +33,39 @@
     transform: scale(1.1);
 }
 
+.listRegisters{
+    display: flex;
+    margin-bottom: 70px;
+}
+
+.listRegisters ul{
+    list-style-type: none;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+    gap: 20px;
+    transition: all ease .4s;
+}
+
+.listRegisters ul li{
+    padding: 20px 30px;
+    background-color: #F8F9FE;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.301);
+}
+
+.titleRegister{
+    color: var(--color1);
+}
+
+.vazio{
+    font-size: 1.5em;
+    color: var(--color1);
+}
+
+
 @media (max-width: 999px){
 
     .containerOccurrences{

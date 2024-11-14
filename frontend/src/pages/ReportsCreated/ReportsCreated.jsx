@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import {format} from 'date-fns'
 import Header from '../../components/Header/Header'
 import { IoMdAdd } from "react-icons/io";
 import './ReportsCreated.css'
@@ -40,22 +41,22 @@ const ReportsCreated = () => {
         
         <div className='listReport'>
           {records.length > 0 ? (
-              <ul>
+              <ul> 
                   {records.map((record) => (
-                      <li key={record.id_register}>
+                      <li key={record.id_report}>
                           <p className='dateReport'>Gerado em:  
-                            <span> {record.date_report} </span>
-                            <apan> {record.time_report} </apan>
+                            <span> {format(new Date(record.date_report), 'dd/MM/yyyy')} - </span>
+                            <span> {record.time_report} </span>
                           </p>
-                          <p className='classReport'>Relatório da turma {record.class_report}</p>
+                          <h3 className='classReport'>Relatório da turma {record.class_report}</h3>
                       </li>
                   ))}
               </ul>
           ) : (
-              <p>Nenhum registro encontrado.</p>
+              <p className='vazio'>Faça seu primeiro relatório.</p>
           )}
         </div>
-        
+
       </div>
     </div>
   )
