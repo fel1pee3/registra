@@ -1,6 +1,7 @@
 .pageHome{
     width: 100vw;
     display: flex;
+    margin-bottom: 70px;
 }
 
 .containerHome{

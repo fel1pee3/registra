@@ -23,8 +23,14 @@ nav Link {
     padding: 8px;
   }
   
-  nav Link.active {
+nav Link.active {
     color: blue;
     font-weight: bold;
     border-bottom: 2px solid blue;
-  }
+}
+
+@media (max-width: 999px){
+
+    
+
+}

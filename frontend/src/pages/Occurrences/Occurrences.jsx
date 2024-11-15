@@ -45,13 +45,15 @@ const Occurrences = () => {
               <ul>
                   {records.map((record) => (
                       <li key={record.id_register}>
-                          <p className='dateRegister'>Data do registro:  
-                            <span> {format(new Date(record.date_register), 'dd/MM/yyyy')} - </span>
-                            <span> {record.time_register} </span>
-                          </p> 
-                          <h3 className='titleRegister'>{record.title_register}</h3>
-                          <p className='typeRegister'>Categoria: {record.type}</p>
-                          <p className='classRegister'>Turma: {record.class_register}</p>
+                          <Link className='ViewRegister' to={`/ViewOccurrence/${record.id_register}`}>
+                            <p className='dateRegister'>Data do registro:
+                              <span> {format(new Date(record.date_register), 'dd/MM/yyyy')} - </span>
+                              <span> {record.time_register} </span>
+                            </p>
+                            <h3 className='titleRegister'>{record.title_register}</h3>
+                            <p className='typeRegister'>Categoria: {record.type}</p>
+                            <p className='classRegister'>Turma: {record.class_register}</p>
+                          </Link>
                       </li>
                   ))}
               </ul>

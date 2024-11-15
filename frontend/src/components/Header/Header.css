@@ -4,7 +4,7 @@
     position: fixed;
     background-color: var(--white1);
     display: flex;
-    align-items: start;
+    align-items: center;
     flex-direction: column;
     padding: 20px 15px;
     gap: 20px;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import { GoHomeFill } from "react-icons/go";
@@ -9,8 +9,31 @@ import { FaUser } from "react-icons/fa";
 import Logo from '../Logo/Logo';
 
 const Header = () => {
+
+  const [isVisible, setIsVisible] = useState(true);
+
+  const checkWidth = () => {
+    if (window.innerWidth < 999) {
+        setIsVisible(false); // Esconde o logo
+    } else {
+        setIsVisible(true); // Exibe o logo
+    }
+  };
+
+  useEffect(() => {
+    checkWidth();
+
+    window.addEventListener('resize', checkWidth);
+
+    return () => {
+        window.removeEventListener('resize', checkWidth);
+    };
+  }, []);
+
   return (
     <header className='componentHeader'>
+
+      {isVisible && <Logo />}
       
       <nav className='containerLinksNavigate'>
         <NavLink className={({ isActive }) => `linkNavigate ${isActive ? 'active' : ''}`} to='/'>

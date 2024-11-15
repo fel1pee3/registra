@@ -44,11 +44,13 @@ const ReportsCreated = () => {
               <ul> 
                   {records.map((record) => (
                       <li key={record.id_report}>
-                          <p className='dateReport'>Gerado em:  
-                            <span> {format(new Date(record.date_report), 'dd/MM/yyyy')} - </span>
-                            <span> {record.time_report} </span>
-                          </p>
-                          <h3 className='classReport'>Relatório da turma {record.class_report}</h3>
+                          <Link className='ViewReport' to={`/ViewReport/${record.id_report}`}>
+                            <p className='dateReport'>Gerado em:
+                              <span> {format(new Date(record.date_report), 'dd/MM/yyyy')} - </span>
+                              <span> {record.time_report} </span>
+                            </p>
+                            <h3 className='classReport'>Relatório da turma {record.class_report}</h3>
+                          </Link>
                       </li>
                   ))}
               </ul>
