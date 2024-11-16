@@ -94,7 +94,6 @@ const AddReport = () => {
             </div>
             <button className="btn">Registrar Ocorrência</button>
         </form>
-
       </div>
     </div>
   )

@@ -38,4 +38,21 @@ router.get('/reports', verifyToken, async (req, res) => {
     }
 });
 
+router.get('/reports/:id', verifyToken, async (req, res) => {
+    try {
+        const db = await connectToDatabase();
+        const query = 'SELECT * FROM reports WHERE id_report = ? AND reporting_user = ?';
+        const [rows] = await db.query(query, [req.params.id, req.userId]);
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: "Registro não encontrado ou não pertence a este usuário" });
+        }
+
+        return res.status(200).json({ registro: rows[0] }); // Retorna apenas o primeiro registro encontrado
+    } catch (err) {
+        console.error('Erro ao buscar registro:', err);
+        return res.status(500).json({ message: "Erro no servidor" });
+    }
+});
+
 export default router
