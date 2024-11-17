@@ -41,15 +41,13 @@ const ViewReport = () => {
           <Link to='/reportsCreated'><IoIosArrowBack className='arrowLeft' /></Link>
           <h1>Detalhes da Relatório</h1>
         </div>
-        <div>
-            <p>Id: {registro.id_report}</p>
-            <p>Usuário: {registro.reporting_user}</p>
-            <p>Criado em:
+        <div className='contentReport'>
+            <p><span className="title">Relatório da turma:</span> {registro.class_report}</p>
+            <p className='description'><span className="title">Descrição:</span> {registro.description}</p>
+            <p className='dateAndTime'>Criado em:
                 <span> {format(new Date(registro.date_report), 'dd/MM/yyyy')} - </span>
                 <span> {registro.time_report} </span>
             </p>
-            <p>Descrição: {registro.class_report}</p>
-            <p>Descrição: {registro.description}</p>
         </div>
     </div>
   )

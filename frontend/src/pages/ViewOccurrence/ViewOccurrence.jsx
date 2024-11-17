@@ -38,22 +38,23 @@ const ViewOccurrence = () => {
   return (
     <div className='pageViewOccurrence'>
       <div className="caixaStart">
-          <Link to='/reportsCreated'><IoIosArrowBack className='arrowLeft' /></Link>
-          <h1>Detalhes do Relatório</h1>
+          <Link to='/occurrences'><IoIosArrowBack className='arrowLeft' /></Link>
+          <h1>Detalhes da Ocorrência</h1>
         </div>
-      <div>
-        <p>Id: {registro.id_register}</p>
-        <p>Usuário: {registro.user_registration}</p>
-        <p>Usuário: {registro.title_register}</p>
-        <p>Usuário: {registro.type}</p>
-        <p>Usuário: {registro.class_register}</p>
-        <p>Estudante: {registro.student_name}</p>
-        <p>Criado em:
-            <span> {format(new Date(registro.date_register), 'dd/MM/yyyy')} - </span>
+      <div className='contentOccurrencia'>
+        <div className='titleAndType'>
+          <p><span className="title">Título da ocorrência:</span> {registro.title_register}</p>
+          <p><span className="title">Tipo da ocorrência:</span> {registro.type}</p>
+        </div>
+        <div className='studentAndClass'>
+          <p><span className="title">Nome do estudante:</span> {registro.student_name}</p>
+          <p><span className="title">Turma do aluno:</span> {registro.class_register}</p>
+        </div>
+        <p className='description'><span className="title">Descrição:</span> {registro.description}</p>
+        <p className='dateAndTime'>Criado em:
+            <span> {format(new Date(registro.date_register), 'dd/MM/yyyy')} às </span>
             <span> {registro.time_register} </span>
         </p>
-        <p>Descrição: {registro.class_register}</p>
-        <p>Descrição: {registro.description}</p>
         </div>
     </div>
   )

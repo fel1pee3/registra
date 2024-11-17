@@ -1,3 +1,20 @@
 .pageViewReport{
     padding: 30px;
 }
+
+.contentReport{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.contentReport .title{
+    font-weight: 600;
+    color: var(--color1);
+}
+
+.contentReport .description{
+    display: flex;
+    flex-direction: column;
+}
