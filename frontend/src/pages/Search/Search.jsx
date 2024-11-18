@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import {format} from 'date-fns'
 import './Search.css'
 import Header from '../../components/Header/Header'
 
@@ -35,17 +37,30 @@ const Search = () => {
     <div className='pageSearch'>
       <Header />
       <div className='containerSearch'>
+      <div className='startPage'>
+          <span>Procurar ocorrência</span>
+        </div>
       <div>
             <input
                 type="text"
                 placeholder="Buscar registros..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                className='inputSearch'
             />
-            <ul>
+            <ul className='caixaRegisterSearch'>
                 {results.map((registro) => (
                     <li key={registro.id_register}>
-                        <strong>Descrição:</strong> {registro.description}
+                        <Link className='link' to={`/ViewOccurrence/${registro.id_register}`}>
+                            <p className='dateRegister'>Data do registro:
+                              <span> {format(new Date(registro.date_register), 'dd/MM/yyyy')} - </span>
+                              <span> {registro.time_register} </span>
+                            </p>
+                            <h3 className='titleRegister'>{registro.title_register}</h3>
+                            <p className='typeRegister'>Categoria: {registro.type}</p>
+                            <p className='classRegister'>Turma: {registro.class_register}</p>
+                            <strong>Descrição:</strong> {registro.description}
+                        </Link>
                     </li>
                 ))}
             </ul>

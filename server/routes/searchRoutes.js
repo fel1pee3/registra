@@ -5,8 +5,8 @@ import verifyToken from '../middlewares/verifyToken.js'
 const router = express.Router()
 
 router.get('/searchs', verifyToken, async (req, res) => {
-    const { q } = req.query; // Termo de busca
-    const userId = req.userId; // Obtido do middleware verifyToken
+    const { q } = req.query;
+    const userId = req.userId;
 
     try {
         const db = await connectToDatabase();
