@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import jsPDF from 'jspdf'
+import { PiDownloadFill } from "react-icons/pi";
 import { Link } from 'react-router-dom'
 import { IoIosArrowBack } from "react-icons/io";
 import {format} from 'date-fns'
@@ -32,6 +34,30 @@ const ViewOccurrence = () => {
         fetchRegistro();
     }, [id]);
 
+    const downloadPDF = () => {
+      if (!registro) return;
+  
+      const doc = new jsPDF();
+  
+      doc.setFontSize(18);
+      doc.text("Detalhes da Ocorrência", 10, 10);
+  
+      doc.setFontSize(12);
+      doc.text(`Título: ${registro.title_register}`, 10, 30);
+      doc.text(`Tipo: ${registro.type}`, 10, 40);
+      doc.text(`Estudante: ${registro.student_name}`, 10, 50);
+      doc.text(`Turma: ${registro.class_register}`, 10, 60);
+      doc.text(`Descrição:`, 10, 70);
+      doc.text(registro.description, 10, 80, { maxWidth: 180 });
+      doc.text(
+        `Criado em: ${format(new Date(registro.date_register), 'dd/MM/yyyy')} às ${registro.time_register}`,
+        10,
+        100
+      );
+  
+      doc.save(`Ocorrencia_${registro.id || id}.pdf`);
+    };
+
     if (loading) return <p>Carregando...</p>;
     if (error) return <p>{error}</p>;
 
@@ -40,6 +66,9 @@ const ViewOccurrence = () => {
       <div className="caixaStart">
         <Link to='/occurrences'><IoIosArrowBack className='arrowLeft' /></Link>
         <h1>Detalhes da Ocorrência</h1>
+      </div>
+      <div className='buttons'>
+        <button className='downloadPDF' onClick={downloadPDF}><PiDownloadFill /> baixar PDF</button>
       </div>
       <div className='contentOccurrencia'>
         <div className='titleAndType'>

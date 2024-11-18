@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import jsPDF from 'jspdf'
+import { PiDownloadFill } from "react-icons/pi";
 import { IoIosArrowBack } from "react-icons/io";
 import {format} from 'date-fns'
 import { useParams } from 'react-router-dom'
@@ -32,6 +34,38 @@ const ViewReport = () => {
         fetchRegistro();
     }, [id]);
 
+    const downloadPDF = () => {
+        if (!registro) return;
+      
+        const doc = new jsPDF();
+      
+        // Título do PDF
+        doc.setFontSize(18);
+        doc.text("Detalhes do Relatório", 10, 10);
+      
+        // Relatório da turma
+        doc.setFontSize(12);
+        doc.text(`Relatório da turma: ${registro.class_report}`, 10, 20);
+      
+        // Descrição
+        const descriptionY = 30; // Posição inicial para a descrição
+        const descriptionText = `Descrição: ${registro.description}`;
+        const maxWidth = 180; // Largura máxima do texto
+        const lineHeight = 7; // Altura da linha
+        const descriptionLines = doc.splitTextToSize(descriptionText, maxWidth);
+        doc.text(descriptionLines, 10, descriptionY);
+      
+        // Próxima posição após a descrição
+        const nextY = descriptionY + descriptionLines.length * lineHeight;
+      
+        // Data e hora
+        const formattedDate = format(new Date(registro.date_report), 'dd/MM/yyyy');
+        doc.text(`Criado em: ${formattedDate} - ${registro.time_report}`, 10, nextY);
+      
+        // Salvar o PDF
+        doc.save(`Relatorio_${registro.id || 'sem-id'}.pdf`);
+      };
+
     if (loading) return <p>Carregando...</p>;
     if (error) return <p>{error}</p>;
 
@@ -41,6 +75,9 @@ const ViewReport = () => {
           <Link to='/reportsCreated'><IoIosArrowBack className='arrowLeft' /></Link>
           <h1>Detalhes da Relatório</h1>
         </div>
+        <div className='buttons'>
+        <button className='downloadPDF' onClick={downloadPDF}><PiDownloadFill /> baixar PDF</button>
+      </div>
         <div className='contentReport'>
             <p><span className="title">Relatório da turma:</span> {registro.class_report}</p>
             <p className='description'><span className="title">Descrição:</span> {registro.description}</p>

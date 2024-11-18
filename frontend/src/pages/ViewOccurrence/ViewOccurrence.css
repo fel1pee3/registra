@@ -33,3 +33,35 @@
     display: flex;
     justify-content: end;
 }
+
+.buttons{
+    display: flex;
+    justify-content: end;
+    margin: 20px 0;
+}
+
+.downloadPDF{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    background-color: red;
+    color: var(--white1);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    opacity: 80%;
+}
+
+.downloadPDF:hover{
+    transform: scale(1.03);
+    opacity: 100%;
+}
+
+@media (max-width: 999px) {
+    
+    .downloadPDF{
+        font-size: 1em;
+    }
+
+}
