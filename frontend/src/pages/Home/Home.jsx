@@ -36,9 +36,9 @@ const Home = () => {
 
   const checkWidth = () => {
     if (window.innerWidth > 999) {
-        setIsVisible(false); // Esconde o logo
+        setIsVisible(false);
     } else {
-        setIsVisible(true); // Exibe o logo
+        setIsVisible(true);
     }
   };
 

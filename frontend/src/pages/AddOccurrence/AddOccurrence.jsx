@@ -52,7 +52,6 @@ const AddOccurrence = () => {
           <Link to='/occurrences'><IoIosArrowBack className='arrowLeft' /></Link>
           <h1>Registrar Ocorrência</h1>
         </div>
-      
         <form className="formRegisterOccurrence" onSubmit={handleSubmit}>
           <div className="caixaInput">
             <label htmlFor="title_register" className="label">Título</label>
@@ -66,13 +65,23 @@ const AddOccurrence = () => {
           </div>
           <div className="caixaInput">
             <label htmlFor="type" className="label">Tipo</label>
-            <input
-              type="text"
-              placeholder="Tipo de Ocorrência"
+            <select
               name="type"
               onChange={handleChanges}
               className="input"
-            />
+            >
+            <option value="desrespeito">Desrespeito</option>
+            <option value="falta de disciplina">Falta de Disciplina</option>
+            <option value="atraso ou ausencia">Atrasos ou Ausências</option>
+            <option value="bullying">Atos de Bullying</option>
+            <option value="danos ao patrimonio">Danos ao Patrimônio</option>
+            <option value="substancias proibidas">Uso de Substâncias Proibidas</option>
+            <option value="agressao">Agressão Física ou Verbal</option>
+            <option value="plagio ou fraude">Plágio ou Fraude Acadêmica</option>
+            <option value="roubo ou furto">Roubo ou Furto</option>
+            <option value="comportamento inadequado">Comportamento Inadequado</option>
+            <option value="outros...">Outros...</option>
+          </select>
           </div>
           <div className="caixaInput">
             <label htmlFor="description" className="label">Descrição</label>
@@ -125,7 +134,6 @@ const AddOccurrence = () => {
           </div>
           <button className="btn">Registrar Ocorrência</button>
         </form>
-
       </div>
     </div>
   )

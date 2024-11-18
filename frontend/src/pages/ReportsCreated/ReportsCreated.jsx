@@ -9,7 +9,6 @@ import './ReportsCreated.css'
 const ReportsCreated = () => {
 
   const [records, setRecords] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
       const fetchRecords = async () => {
@@ -22,7 +21,6 @@ const ReportsCreated = () => {
               });
               setRecords(response.data.registros);
           } catch (err) {
-              setError('Erro ao buscar registros do usuário');
               console.error(err);
           }
       };
@@ -38,27 +36,25 @@ const ReportsCreated = () => {
           <span>Relatórios</span>
           <Link to='/addReport'><IoMdAdd className='iconAddReports'/></Link>
         </div>
-        
         <div className='listReport'>
           {records.length > 0 ? (
-              <ul> 
-                  {records.map((record) => (
-                      <li key={record.id_report}>
-                          <Link className='ViewReport' to={`/ViewReport/${record.id_report}`}>
-                            <p className='dateReport'>Gerado em:
-                              <span> {format(new Date(record.date_report), 'dd/MM/yyyy')} - </span>
-                              <span> {record.time_report} </span>
-                            </p>
-                            <h3 className='classReport'>Relatório da turma {record.class_report}</h3>
-                          </Link>
-                      </li>
-                  ))}
-              </ul>
+            <ul> 
+              {records.map((record) => (
+                <li key={record.id_report}>
+                  <Link className='ViewReport' to={`/ViewReport/${record.id_report}`}>
+                    <p className='dateReport'>Gerado em:
+                      <span> {format(new Date(record.date_report), 'dd/MM/yyyy')} - </span>
+                      <span> {record.time_report} </span>
+                    </p>
+                    <h3 className='classReport'>Relatório da turma {record.class_report}</h3>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           ) : (
-              <p className='vazio'>Faça seu primeiro relatório.</p>
+            <p className='vazio'>Faça seu primeiro relatório.</p>
           )}
         </div>
-
       </div>
     </div>
   )

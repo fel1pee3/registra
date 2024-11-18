@@ -8,7 +8,6 @@ import './PrevReports.css'
 const PrevReports = () => {
 
     const [records, setRecords] = useState([]);
-    const [error, setError] = useState(null);
     const recentRecords = records.slice(0, 8);
 
     useEffect(() => {
@@ -22,7 +21,6 @@ const PrevReports = () => {
                 });
                 setRecords(response.data.registros);
             } catch (err) {
-                setError('Erro ao buscar registros do usuário');
                 console.error(err);
             }
         };

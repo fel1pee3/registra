@@ -19,7 +19,7 @@ router.get('/searchs', verifyToken, async (req, res) => {
         res.status(200).json(rows);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Erro ao buscar registros' });
+        res.status(500).json({ message: 'Error fetching records' });
     }
 });
 

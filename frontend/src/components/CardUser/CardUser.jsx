@@ -56,7 +56,6 @@ const CardUser = () => {
         <img className='imgUser' src={img} alt="image user" />
         <div className='contentUser'>
             <p className='idUser'>{formattedId}</p>
-            <h4>Professor</h4>
             <p className='quantRegister'><span>{formattedCount}</span> Registros</p>
         </div>
     </div>

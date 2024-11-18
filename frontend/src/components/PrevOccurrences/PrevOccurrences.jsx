@@ -9,7 +9,6 @@ import './PrevOccurrences.css'
 const PrevOccurrences = () => {
 
   const [records, setRecords] = useState([]);
-  const [error, setError] = useState(null);
   const recentRecords = records.slice(0, 8);
   const [slidePerView, setSlidePerView] = useState(3);
 
@@ -24,7 +23,6 @@ const PrevOccurrences = () => {
               });
               setRecords(response.data.registros);
           } catch (err) {
-              setError('Erro ao buscar registros do usuário');
               console.error(err);
           }
       };

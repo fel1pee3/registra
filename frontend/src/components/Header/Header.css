@@ -84,5 +84,9 @@
     .linkNavigate p{
         font-size: .7em;
     }
+    .linkNavigate.active{
+        background-color: #ffffff00;
+        box-shadow: 5px 5px 10px -2px rgba(0, 0, 0, 0);
+    }
 
 }

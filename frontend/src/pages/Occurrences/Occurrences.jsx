@@ -9,7 +9,6 @@ import './Occurrences.css'
 const Occurrences = () => {
 
   const [records, setRecords] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
       const fetchRecords = async () => {
@@ -22,7 +21,6 @@ const Occurrences = () => {
               });
               setRecords(response.data.registros);
           } catch (err) {
-              setError('Erro ao buscar registros do usuário');
               console.error(err);
           }
       };

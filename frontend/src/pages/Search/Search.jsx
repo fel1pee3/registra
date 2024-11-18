@@ -38,7 +38,7 @@ const Search = () => {
       <Header />
       <div className='containerSearch'>
       <div className='startPage'>
-          <span>Procurar ocorrência</span>
+          <span>Pesquisar</span>
         </div>
       <div>
             <input
@@ -59,7 +59,7 @@ const Search = () => {
                             <h3 className='titleRegister'>{registro.title_register}</h3>
                             <p className='typeRegister'>Categoria: {registro.type}</p>
                             <p className='classRegister'>Turma: {registro.class_register}</p>
-                            <strong>Descrição:</strong> {registro.description}
+                            <p><span className='descriptionS'>Descrição:</span> {registro.description}</p>
                         </Link>
                     </li>
                 ))}

@@ -8,7 +8,7 @@ import './ViewReport.css'
 
 const ViewReport = () => {
 
-    const { id } = useParams(); // Captura o ID da URL
+    const { id } = useParams();
     const [registro, setRegistro] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

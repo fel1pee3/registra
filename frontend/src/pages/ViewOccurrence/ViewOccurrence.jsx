@@ -8,7 +8,7 @@ import './ViewOccurrence.css'
 
 const ViewOccurrence = () => {
 
-  const { id } = useParams(); // Captura o ID da URL
+  const { id } = useParams();
     const [registro, setRegistro] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -38,9 +38,9 @@ const ViewOccurrence = () => {
   return (
     <div className='pageViewOccurrence'>
       <div className="caixaStart">
-          <Link to='/occurrences'><IoIosArrowBack className='arrowLeft' /></Link>
-          <h1>Detalhes da Ocorrência</h1>
-        </div>
+        <Link to='/occurrences'><IoIosArrowBack className='arrowLeft' /></Link>
+        <h1>Detalhes da Ocorrência</h1>
+      </div>
       <div className='contentOccurrencia'>
         <div className='titleAndType'>
           <p><span className="title">Título da ocorrência:</span> {registro.title_register}</p>
@@ -55,7 +55,7 @@ const ViewOccurrence = () => {
             <span> {format(new Date(registro.date_register), 'dd/MM/yyyy')} às </span>
             <span> {registro.time_register} </span>
         </p>
-        </div>
+      </div>
     </div>
   )
 }

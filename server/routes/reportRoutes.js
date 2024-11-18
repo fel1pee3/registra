@@ -28,13 +28,13 @@ router.get('/reports', verifyToken, async (req, res) => {
         const [rows] = await db.query(query, [req.userId]);
 
         if (rows.length === 0) {
-            return res.status(404).json({ message: "Nenhum registro encontrado para este usuário" });
+            return res.status(404).json({ message: "No records found for this user" });
         }
 
         return res.status(200).json({ registros: rows });
     } catch (err) {
-        console.error('Erro ao buscar registros:', err);
-        return res.status(500).json({ message: "Erro no servidor" });
+        console.error('Error fetching records:', err);
+        return res.status(500).json({ message: "Server error" });
     }
 });
 
@@ -45,13 +45,13 @@ router.get('/reports/:id', verifyToken, async (req, res) => {
         const [rows] = await db.query(query, [req.params.id, req.userId]);
 
         if (rows.length === 0) {
-            return res.status(404).json({ message: "Registro não encontrado ou não pertence a este usuário" });
+            return res.status(404).json({ message: "Record not found or does not belong to this user" });
         }
 
-        return res.status(200).json({ registro: rows[0] }); // Retorna apenas o primeiro registro encontrado
+        return res.status(200).json({ registro: rows[0] });
     } catch (err) {
-        console.error('Erro ao buscar registro:', err);
-        return res.status(500).json({ message: "Erro no servidor" });
+        console.error('Error fetching record:', err);
+        return res.status(500).json({ message: "Server error" });
     }
 });
 

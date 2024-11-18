@@ -1,6 +1,7 @@
 .pageSearch{
     width: 100vw;
     display: flex;
+    padding-bottom: 70px;
 }
 
 .containerSearch{
@@ -19,8 +20,9 @@
 
 .inputSearch{
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border-radius: 10px;
+    border: 1px solid var(--black);
 }
 
 .caixaRegisterSearch{
@@ -46,6 +48,11 @@
 .startPage span{
     font-size: 2.5em;
     font-weight: 500;
+}
+
+.descriptionS{
+    font-weight: 600;
+    color: var(--color1);
 }
 
 @media (max-width: 999px){
