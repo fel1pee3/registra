@@ -39,30 +39,24 @@ const ViewReport = () => {
       
         const doc = new jsPDF();
       
-        // Título do PDF
         doc.setFontSize(18);
         doc.text("Detalhes do Relatório", 10, 10);
       
-        // Relatório da turma
         doc.setFontSize(12);
         doc.text(`Relatório da turma: ${registro.class_report}`, 10, 20);
       
-        // Descrição
-        const descriptionY = 30; // Posição inicial para a descrição
+        const descriptionY = 30;
         const descriptionText = `Descrição: ${registro.description}`;
-        const maxWidth = 180; // Largura máxima do texto
-        const lineHeight = 7; // Altura da linha
+        const maxWidth = 180;
+        const lineHeight = 7;
         const descriptionLines = doc.splitTextToSize(descriptionText, maxWidth);
         doc.text(descriptionLines, 10, descriptionY);
       
-        // Próxima posição após a descrição
         const nextY = descriptionY + descriptionLines.length * lineHeight;
       
-        // Data e hora
         const formattedDate = format(new Date(registro.date_report), 'dd/MM/yyyy');
         doc.text(`Criado em: ${formattedDate} - ${registro.time_report}`, 10, nextY);
       
-        // Salvar o PDF
         doc.save(`Relatorio_${registro.id || 'sem-id'}.pdf`);
       };
 

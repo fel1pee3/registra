@@ -69,4 +69,32 @@ router.get('/registers/:id', verifyToken, async (req, res) => {
     }
 });
 
+router.delete('/registers/:id', verifyToken, async (req, res) => {
+    try {
+      const db = await connectToDatabase(); // Conectar ao banco de dados
+      const { id } = req.params; // Pegando o ID do registro da URL
+  
+      // Consulta SQL para verificar se o registro existe e pertence ao usuário
+      const checkQuery = 'SELECT * FROM registers WHERE id_register = ? AND user_registration = ?';
+      const [rows] = await db.query(checkQuery, [id, req.userId]);
+  
+      if (rows.length === 0) {
+        return res.status(404).json({ message: "Record not found or does not belong to this user" });
+      }
+  
+      // Consulta SQL para deletar o registro
+      const deleteQuery = 'DELETE FROM registers WHERE id_register = ? AND user_registration = ?';
+      const [deleteResult] = await db.query(deleteQuery, [id, req.userId]);
+  
+      if (deleteResult.affectedRows === 0) {
+        return res.status(404).json({ message: "Failed to delete the record" });
+      }
+  
+      return res.status(200).json({ message: "Record deleted successfully" });
+    } catch (err) {
+      console.error('Error deleting record:', err);
+      return res.status(500).json({ message: "Server error" });
+    }
+  });
+
 export default router

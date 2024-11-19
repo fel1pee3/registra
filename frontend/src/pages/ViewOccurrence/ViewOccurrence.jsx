@@ -2,18 +2,20 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import jsPDF from 'jspdf'
 import { PiDownloadFill } from "react-icons/pi";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IoIosArrowBack } from "react-icons/io";
+import { FaRegTrashAlt } from "react-icons/fa";
 import {format} from 'date-fns'
 import { useParams } from 'react-router-dom'
 import './ViewOccurrence.css'
 
 const ViewOccurrence = () => {
 
+  const navigate = useNavigate();
   const { id } = useParams();
-    const [registro, setRegistro] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const [registro, setRegistro] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchRegistro = async () => {
@@ -33,6 +35,23 @@ const ViewOccurrence = () => {
 
         fetchRegistro();
     }, [id]);
+
+    const handleDelete = async () => {
+      const confirmDelete = window.confirm('Tem certeza que deseja excluir este registro?');
+      if (!confirmDelete) return;
+  
+      try {
+        const token = localStorage.getItem('token');
+        await axios.delete(`http://localhost:3000/occurrence/registers/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        alert('Registro excluído com sucesso');
+        navigate('/occurrences'); // Redireciona para a página de ocorrências após a exclusão
+      } catch (err) {
+        console.error('Erro ao excluir registro:', err);
+        alert('Erro ao excluir o registro');
+      }
+    };
 
     const downloadPDF = () => {
       if (!registro) return;
@@ -68,6 +87,9 @@ const ViewOccurrence = () => {
         <h1>Detalhes da Ocorrência</h1>
       </div>
       <div className='buttons'>
+      <button onClick={handleDelete}>
+        <FaRegTrashAlt /> Remover registro
+      </button>
         <button className='downloadPDF' onClick={downloadPDF}><PiDownloadFill /> baixar PDF</button>
       </div>
       <div className='contentOccurrencia'>

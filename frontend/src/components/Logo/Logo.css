@@ -29,7 +29,7 @@ nav Link.active {
     border-bottom: 2px solid blue;
 }
 
-@media (max-width: 999px){
+@media (max-width: 750px){
 
     .caixaLogo{
         display: flex;

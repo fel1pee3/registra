@@ -7,10 +7,10 @@ import './CardUser.css'
 const CardUser = () => {
 
     const [userId, setUserId] = useState('');
-    const navigate = useNavigate();
-    const formattedId = userId.toString().padStart(6, '0');
     const [recordCount, setRecordCount] = useState(0);
     const formattedCount = recordCount.toString().padStart(3, '0');
+    const formattedId = userId.toString().padStart(6, '0');
+    const navigate = useNavigate();
   
     const fetchUser = async () => {
       try {
