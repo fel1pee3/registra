@@ -42,11 +42,11 @@ const ViewOccurrence = () => {
   
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:3000/occurrence/registers/${id}`, {
+        await axios.delete(`http://localhost:3000/occurrence/removeRegisters/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         alert('Registro excluído com sucesso');
-        navigate('/occurrences'); // Redireciona para a página de ocorrências após a exclusão
+        navigate('/occurrences');
       } catch (err) {
         console.error('Erro ao excluir registro:', err);
         alert('Erro ao excluir o registro');
@@ -87,7 +87,7 @@ const ViewOccurrence = () => {
         <h1>Detalhes da Ocorrência</h1>
       </div>
       <div className='buttons'>
-      <button onClick={handleDelete}>
+      <button className='btnRemove' onClick={handleDelete}>
         <FaRegTrashAlt /> Remover registro
       </button>
         <button className='downloadPDF' onClick={downloadPDF}><PiDownloadFill /> baixar PDF</button>

@@ -38,9 +38,10 @@
     display: flex;
     justify-content: end;
     margin: 20px 0;
+    gap: 20px;
 }
 
-.downloadPDF{
+.downloadPDF, .btnRemove{
     display: flex;
     align-items: center;
     gap: 5px;
@@ -53,15 +54,24 @@
     opacity: 80%;
 }
 
-.downloadPDF:hover{
+.downloadPDF:hover, .btnRemove:hover{
     transform: scale(1.03);
     opacity: 100%;
 }
 
 @media (max-width: 999px) {
     
-    .downloadPDF{
+    .downloadPDF, .btnRemove{
         font-size: 1em;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+    
+    .downloadPDF, .btnRemove{
+        font-size: .8em;
     }
 
 }
