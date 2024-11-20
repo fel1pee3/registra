@@ -36,8 +36,8 @@ const Search = () => {
   return (
     <div className='pageSearch'>
       <Header />
-      <div className='containerSearch'>
-      <div className='startPage'>
+        <div className='containerSearch'>
+        <div className='startPage'>
           <span>Pesquisar</span>
         </div>
       <div>
