@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header'
 import { Link } from 'react-router-dom'
 import {format} from 'date-fns'
 import { IoMdAdd } from "react-icons/io";
+import LinksOcurrences from '../../components/LinksOcurrences/LinksOcurrences'
 import './Occurrences.css'
 
 const Occurrences = () => {
@@ -38,10 +39,12 @@ const Occurrences = () => {
           <Link to='/addOccurrence'><IoMdAdd className='iconAddOccurrence'/></Link>
         </div>
 
+        <LinksOcurrences />
+
         <div className='listRegisters'>
           {records.length > 0 ? (
               <ul>
-                  {records.map((record) => (
+                  {records.map((record) => ( 
                       <li key={record.id_register}>
                           <Link className='ViewRegister' to={`/ViewOccurrence/${record.id_register}`}>
                             <p className='dateRegister'>Data do registro:

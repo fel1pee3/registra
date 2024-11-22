@@ -11,6 +11,7 @@ import AddOccurrence from './pages/AddOccurrence/AddOccurrence'
 import AddReport from './pages/AddReports/AddReport'
 import ViewOccurrence from './pages/ViewOccurrence/ViewOccurrence'
 import ViewReport from './pages/ViewReport/ViewReport'
+import ViewerLeaderOccurrences from './pages/ViewerLeaderOccurrences/ViewerLeaderOccurrences'
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/occurrences' element={<Occurrences />}></Route>
         <Route path='/addOccurrence' element={<AddOccurrence />}></Route>
         <Route path='/viewOccurrence/:id' element={<ViewOccurrence />}></Route>
+        <Route path='/viewerLeaderOccurrences' element={<ViewerLeaderOccurrences />}></Route>
         <Route path='/search' element={<Search />}></Route>
         <Route path='/reportsCreated' element={<ReportsCreated />}></Route>
         <Route path='/addReport' element={<AddReport />}></Route>

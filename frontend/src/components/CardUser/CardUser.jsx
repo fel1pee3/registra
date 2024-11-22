@@ -7,6 +7,7 @@ import './CardUser.css'
 const CardUser = () => {
 
     const [userId, setUserId] = useState('');
+    const [userPosition, setUserPosition] = useState('');
     const [recordCount, setRecordCount] = useState(0);
     const formattedCount = recordCount.toString().padStart(3, '0');
     const formattedId = userId.toString().padStart(6, '0');
@@ -23,6 +24,7 @@ const CardUser = () => {
   
         if (response.status === 201) {
           setUserId(response.data.user.id);
+          setUserPosition(response.data.user.position);
         } else {
           navigate('/login');
         }
@@ -56,6 +58,7 @@ const CardUser = () => {
         <img className='imgUser' src={img} alt="image user" />
         <div className='contentUser'>
             <p className='idUser'>{formattedId}</p>
+            <p className='positonUser'>{userPosition}</p>
             <p className='quantRegister'><span>{formattedCount}</span> Registros</p>
         </div>
     </div>
