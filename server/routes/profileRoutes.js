@@ -115,4 +115,25 @@ router.get('/leader-occurrences', verifyToken, async (req, res) => {
   }
 });
 
+router.get('/leader-reports', verifyToken, async (req, res) => {
+  try {
+    const db = await connectToDatabase();
+    const reportsQuery = `
+      SELECT r.id_report, r.description, r.date_report, r.time_report, class_report
+      FROM reports r
+      JOIN users u ON r.reporting_user = u.id
+      WHERE u.leader_id = ?;
+    `;
+    const [reports] = await db.execute(reportsQuery, [req.userId]); 
+    if (reports.length === 0) {
+      return res.status(404).json({ message: 'Nenhuma ocorrência encontrada para seus associados.' });
+    }
+
+    res.status(200).json({ reports });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Erro ao buscar ocorrências.' });
+  }
+});
+
 export default router

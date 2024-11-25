@@ -1,71 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import Header from '../../components/Header/Header'
-import { Link } from 'react-router-dom'
-import {format} from 'date-fns'
-import { IoMdAdd } from "react-icons/io";
-import LinksOcurrences from '../../components/LinksOcurrences/LinksOcurrences'
-import './Occurrences.css'
+import React, { useState } from 'react';
+import Header from '../../components/Header/Header';
+import './Occurrences.css';
+import ViewRegister from '../ViewRegister/ViewRegister';
+import ViewerLeaderOccurrences from '../ViewerLeaderOccurrences/ViewerLeaderOccurrences';
 
 const Occurrences = () => {
+  const [selectedOption, setSelectedOption] = useState('optionA');
 
-  const [records, setRecords] = useState([]);
-
-  useEffect(() => {
-      const fetchRecords = async () => {
-          try {
-              const token = localStorage.getItem('token');
-              const response = await axios.get('http://localhost:3000/occurrence/registers', {
-                  headers: {
-                      Authorization: `Bearer ${token}`
-                  }
-              });
-              setRecords(response.data.registros);
-          } catch (err) {
-              console.error(err);
-          }
-      };
-
-      fetchRecords();
-  }, []);
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
   return (
-    <div className='pageOccurrences'>
+    <div className='pageOccurences'>
       <Header />
       <div className='containerOccurrences'>
-
         <div className='startPage'>
-          <span>Registros</span>
-          <Link to='/addOccurrence'><IoMdAdd className='iconAddOccurrence'/></Link>
+          <span>Ocorrências</span>
         </div>
-
-        <LinksOcurrences />
-
-        <div className='listRegisters'>
-          {records.length > 0 ? (
-              <ul>
-                  {records.map((record) => ( 
-                      <li key={record.id_register}>
-                          <Link className='ViewRegister' to={`/ViewOccurrence/${record.id_register}`}>
-                            <p className='dateRegister'>Data do registro:
-                              <span> {format(new Date(record.date_register), 'dd/MM/yyyy')} - </span>
-                              <span> {record.time_register} </span>
-                            </p>
-                            <h3 className='titleRegister'>{record.title_register}</h3>
-                            <p className='typeRegister'>Categoria: {record.type}</p>
-                            <p className='classRegister'>Turma: {record.class_register}</p>
-                          </Link>
-                      </li>
-                  ))}
-              </ul>
-          ) : (
-              <p className='vazio'>Faça seu primeiro registro.</p>
-          )}
+        <div className="radio-input">
+          <label className="radio">
+            <input type="radio" value="optionA"
+              checked={selectedOption === 'optionA'}
+              onChange={handleOptionChange}/>
+            <span>Minhas ocorrências</span>
+          </label>
+          <label className="radio">
+            <input type="radio" value="optionB"
+              checked={selectedOption === 'optionB'}
+              onChange={handleOptionChange}/>
+            <span>Ocorrências de associados</span>
+          </label>
+          <span className="selection"></span>
         </div>
-
+        {selectedOption === 'optionA' ? (
+          <ViewRegister />
+        ) : (
+          <ViewerLeaderOccurrences />
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Occurrences
+export default Occurrences;

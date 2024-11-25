@@ -62,7 +62,7 @@ const CardProfile = () => {
           >
             <option value="Escolha seu cargo">Escolha seu cargo</option>
             <option value="Professo(a)">Professo(a)</option>
-            <option value="Direto(a)">Direto(a)</option>
+            <option value="Diretor(a)">Direto(a)</option>
             <option value="Vice diretor(a)">Vice diretor(a)</option>
             <option value="Secrétario(a) escolar">Secrétario(a) escolar</option>
             <option value="Auxiliar de limpeza">Auxiliar de limpeza</option>

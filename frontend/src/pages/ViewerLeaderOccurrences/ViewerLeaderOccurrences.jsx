@@ -2,13 +2,11 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import {format} from 'date-fns'
 import axios from 'axios'
-import LinksOcurrences from '../../components/LinksOcurrences/LinksOcurrences'
-import Header from '../../components/Header/Header'
 import './ViewerLeaderOccurrences.css'
 
 const ViewerLeaderOccurrences = () => {
 
-    const [occurrences, setOccurrences] = useState([]);
+  const [occurrences, setOccurrences] = useState([]);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -29,16 +27,14 @@ const ViewerLeaderOccurrences = () => {
   }, []);
 
   return (
-    <div className="pageViewerLeader">
-      <Header />
-      <div className='containerViewerLeader'>
+    <div className="pageViewLeader">
+      <div className='containerViewLeader'>
         <div className='startPage'>
-            <span>Registros</span>
+            <span>Registros de Associados</span>
         </div>
-        <LinksOcurrences />
         {message && <p>{message}</p>}
         {occurrences.length > 0 ? (
-          <ul >
+          <ul>
             {occurrences.map((occurrence) => (
               <li key={occurrence.id_register}>
                 <Link className='ViewRegister' to={`/ViewOccurrence/${occurrence.id_register}`}>
