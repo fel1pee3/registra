@@ -12,7 +12,7 @@ const CardProfile = () => {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem('token'); // Obtém o token do localStorage
+      const token = localStorage.getItem('token');
       const response = await axios.put(
         'http://localhost:3000/profile/update-username',
         { newUsername },

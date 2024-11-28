@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import './LeaderConnection.css'
 
 const LeaderConnection = () => {
 
-    const [leaderCode, setLeaderCode] = useState('');
+  const [leaderCode, setLeaderCode] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -27,14 +27,15 @@ const LeaderConnection = () => {
   return (
     <div>
       <h2>Associar a um líder</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='formCodeConect'>
         <input
+          className='inputCodeConect'
           type="text"
           placeholder="Digite o código do líder"
           value={leaderCode}
           onChange={(e) => setLeaderCode(e.target.value)}
         />
-        <button type="submit">Associar</button>
+        <button type="submit" className='btnCodeConect'>Associar</button>
       </form>
       {message && <p>{message}</p>}
     </div>

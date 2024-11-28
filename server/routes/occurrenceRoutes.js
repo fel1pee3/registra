@@ -55,11 +55,19 @@ router.get('/count', verifyToken, async (req, res) => {
 router.get('/registers/:id', verifyToken, async (req, res) => {
     try {
         const db = await connectToDatabase();
-        const query = 'SELECT * FROM registers WHERE id_register = ? AND user_registration = ?';
-        const [rows] = await db.query(query, [req.params.id, req.userId]);
+        const userId = req.userId;
+
+        const query = `
+            SELECT r.*
+            FROM registers r
+            JOIN users u ON r.user_registration = u.id
+            WHERE r.id_register = ? AND (r.user_registration = ? OR u.leader_id = ?)
+        `;
+
+        const [rows] = await db.query(query, [req.params.id, userId, userId]);
 
         if (rows.length === 0) {
-            return res.status(404).json({ message: "Record not found or does not belong to this user" });
+            return res.status(404).json({ message: "Record not found or access denied" });
         }
 
         return res.status(200).json({ registro: rows[0] });

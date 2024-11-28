@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import img from '../../../images/male-white.png'
+import img from '../../../images/imageUser.png'
 import './CardUser.css'
 
 const CardUser = () => {

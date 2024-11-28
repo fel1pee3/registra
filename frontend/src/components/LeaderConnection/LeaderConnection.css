@@ -1,0 +1,27 @@
+.formCodeConect{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+}
+
+.inputCodeConect{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--gray);
+    outline: 0;
+}
+
+.btnCodeConect{
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    background-color: var(--color1);
+    color: var(--white1);
+    font-weight: 600;
+    opacity: 80%;
+}
+
+.btnCodeConect:hover{
+    opacity: 100%;
+}
