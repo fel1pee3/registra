@@ -153,6 +153,52 @@ git clone https://github.com/fel1pee3/registra.git
 
 ---
 
+## 📚 **Criação do Banco de Dados**
+
+```bash
+USE registra;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(199) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL UNIQUE,
+    profile_image VARCHAR(255),
+    position VARCHAR(255),
+    leader_code VARCHAR(255),
+    leader_id INT
+);
+
+CREATE TABLE registers (
+    id_register INT AUTO_INCREMENT PRIMARY KEY,
+    user_registration INT,
+    title_register VARCHAR(255),
+    type VARCHAR(50),
+    description TEXT,
+    date_register DATE,
+    time_register TIME,
+    class_register VARCHAR(255),
+    student_name VARCHAR(100),
+    CONSTRAINT fk_user_registration
+    FOREIGN KEY (user_registration)
+    REFERENCES users(id)
+);
+
+CREATE TABLE reports (
+    id_report INT AUTO_INCREMENT PRIMARY KEY,
+    reporting_user INT,
+    date_report DATE,
+    time_report TIME,
+    class_report VARCHAR(50),
+    description TEXT,
+    CONSTRAINT fk_reporting_user
+    FOREIGN KEY (reporting_user)
+    REFERENCES users(id)
+);
+```
+
+---
+
 ## 📝 **Como Contribuir**
 
 1. Faça um fork do projeto.
