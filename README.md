@@ -1,31 +1,24 @@
-# 📝 **Registra**
+# Registra
 
-**Registra** é um sistema desenvolvido para gerenciar ocorrências de alunos em escolas. Ele otimiza o acompanhamento do comportamento dos estudantes e facilita a comunicação entre funcionários e responsáveis.  
+Registra é um sistema desenvolvido para gerenciar ocorrências de alunos em escolas. Ele otimiza o acompanhamento do comportamento dos estudantes e facilita a comunicação entre funcionários e os responsáveis da instituição.  
 
-O sistema foi desenvolvido com **Node.js** no backend, **React.js** no frontend e utiliza **MySQL** como banco de dados.
+## Status
+🚧 Projeto Finalizado (possiveis mudanças no futuro) 🚧
 
----
+## Pré-visualização
+Confira uma prévia do Conecta:
 
-## 📌 **Índice**
-
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Funcionalidades](#-funcionalidades)
-- [Pré-requisitos](#-pré-requisitos)
-- [Instalação](#-instalação)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Dependências](#-dependências)
-- [Como Contribuir](#-como-contribuir)
-- [Licença](#-licença)
-
----
-
-## 📖 **Sobre o Projeto**
-
-O **Registra** é uma plataforma que permite registrar, acompanhar e gerenciar ocorrências relacionadas ao comportamento dos alunos, com foco em:
-
-- Melhorar a comunicação entre funcionários e responsáveis.
-- Facilitar a gestão de incidentes escolares.
-- Registrar ocorrências com descrição detalhada, data e hora.
+![Imagem da Aplicação](frontend/images/tela1.png)
+![Imagem da Aplicação](frontend/images/tela2.png)
+![Imagem da Aplicação](frontend/images/tela3.png)
+![Imagem da Aplicação](frontend/images/tela4.png)
+![Imagem da Aplicação](frontend/images/tela5.png)
+![Imagem da Aplicação](frontend/images/tela6.png)
+![Imagem da Aplicação](frontend/images/tela7.png)
+![Imagem da Aplicação](frontend/images/tela8.png)
+![Imagem da Aplicação](frontend/images/tela9.png)
+![Imagem da Aplicação](frontend/images/tela10.png)
+![Imagem da Aplicação](frontend/images/tela11.png)
 
 ---
 
