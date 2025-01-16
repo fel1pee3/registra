@@ -22,135 +22,39 @@ Confira uma prévia do Conecta:
 
 ---
 
-## 🚀 **Funcionalidades**
-
-- **Cadastro de ocorrências**: Permite que funcionários registrem comportamentos ou incidentes dos alunos.
-- **Busca em tempo real**: Localize ocorrências por palavras-chave.
-- **Visualização detalhada**: Cada ocorrência pode ser vista individualmente.
-- **Exclusão de registros**: Remove ocorrências diretamente da interface.
-- **Página de perfil**: Exibe dados do usuário e suas ocorrências registradas.
-- **download em PDF**: Baixa os registros e relatórios em PDF.
-
----
-
-## ⚙️ **Pré-requisitos**
-
-Antes de começar, você precisa instalar as seguintes ferramentas:
-
-- [Node.js](https://nodejs.org/) (Inclui o gerenciador de pacotes `npm`)
-- [Git](https://git-scm.com/)
-- [MySQL](https://www.mysql.com/)
-- Um editor de código, como o [VSCode](https://code.visualstudio.com/)
+## Funcionalidades
+- ✅ Sistema de autenticação seguro (JWT)
+- ✅ Pré-visualização de cargo, ocrrências criadas e id do usuário logado
+- ✅ Registrar ocorrências e relatórios
+- ✅ Vizulizar ocorrências e relatórios individualmente
+- ✅ Opção de deletar ocorrências e relatórios
+- ✅ Opão de download em PDF, baixa podendo baixar ocorrências e relatórios
+- ✅ Pré-visualização de ocorrências criadas por associados
+- ✅ Busca em tempo real, localize ocorrências por palavras-chave
+- ✅ Alternativa de alterar nome e cargo
+- ✅ Opção de se tornar Líder ou se conctar como associado
 
 ---
 
-## 🛠️ **Instalação**
+## Como Começar
 
-### 1. Clone o repositório
+### Pré-requisitos
+Certifique-se de ter instalado:
+- **Node.js** (v16 ou superior)
+- **MySQL**
+- **Git**
 
+### Criação do Banco de Dados
+
+#### BD `conecta`
+Cria o BD do projeto.
 ```bash
-git clone https://github.com/fel1pee3/registra.git
+CREATE DATABASE registra;
 ```
 
-### 2. Configure o Backend
-
-1. Acesse o diretório do servidor:
-   ```bash
-   cd registra/server
-   ```
-
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-
-3. Configure o arquivo `.env`:
-   Crie um arquivo `.env` no diretório `server` com as seguintes variáveis:
-   ```env
-   DB_HOST=seu-host
-   DB_USER=seu-usuario
-   DB_PASSWORD=sua-senha
-   DB_NAME=nome-do-banco
-   JWT_SECRET=sua-chave-secreta
-   ```
-
-4. Inicie o servidor:
-   ```bash
-   npm start
-   ```
-
-### 3. Configure o Frontend
-
-1. Acesse o diretório do cliente:
-   ```bash
-   cd ../frontend
-   ```
-
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-
-3. Inicie o frontend:
-   ```bash
-   npm run dev
-   ```
-
-4. O frontend estará disponível no endereço:
-   ```
-   http://localhost:5173
-   ```
-
----
-
-## 🧰 **Tecnologias Utilizadas**
-
-### Backend
-- **Node.js**
-- **Express**
-- **MySQL**
-- **JWT**
-- **Multer**
-
-### Frontend
-- **React.js**
-- **Vite**
-- **Axios**
-- **React Router**
-- **React Icons**
-
----
-
-## 📚 **Dependências**
-
-### Backend
-
-- **bcrypt** (`^5.1.1`): Para hashing de senhas.
-- **cors** (`^2.8.5`): Para habilitar CORS.
-- **express** (`^4.21.1`): Framework para criar APIs REST.
-- **jsonwebtoken** (`^9.0.2`): Para autenticação JWT.
-- **multer** (`^1.4.5-lts.1`): Para upload de arquivos.
-- **mysql2** (`^3.11.3`): Cliente MySQL para Node.js.
-- **nodemon** (`^3.1.7`): Reinicia o servidor automaticamente durante o desenvolvimento.
-
-### Frontend
-
-- **axios** (`^1.7.7`): Cliente HTTP.
-- **date-fns** (`^4.1.0`): Biblioteca para manipulação de datas.
-- **jspdf** (`^2.5.2`): Para geração de PDFs.
-- **react** (`^18.3.1`): Biblioteca para criação da interface.
-- **react-dom** (`^18.3.1`): Para renderizar o React no DOM.
-- **react-icons** (`^5.3.0`): Ícones no React.
-- **react-router-dom** (`^6.27.0`): Roteamento.
-- **swiper** (`^11.1.14`): Para sliders/carrosséis.
-
----
-
-## 📚 **Criação do Banco de Dados**
-
+#### Tabela `users`
+Guarda informações sobre os usuários.
 ```bash
-USE registra;
-
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(199) NOT NULL,
@@ -161,7 +65,11 @@ CREATE TABLE users (
     leader_code VARCHAR(255),
     leader_id INT
 );
+```
 
+#### Tabela `contacts`
+Armazena as ocorrências.
+```bash
 CREATE TABLE registers (
     id_register INT AUTO_INCREMENT PRIMARY KEY,
     user_registration INT,
@@ -176,7 +84,11 @@ CREATE TABLE registers (
     FOREIGN KEY (user_registration)
     REFERENCES users(id)
 );
+```
 
+#### Tabela `messages`
+Armazena os relatórios.
+```bash
 CREATE TABLE reports (
     id_report INT AUTO_INCREMENT PRIMARY KEY,
     reporting_user INT,
@@ -190,27 +102,50 @@ CREATE TABLE reports (
 );
 ```
 
+### Instalação
+
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/fel1pee3/registra.git
+    cd conecta
+    ```
+
+2. Instale as dependências do backend:
+    ```bash
+    cd backend
+    npm install
+    ```
+
+3. Configure o arquivo `.env` no backend:
+    ```env
+    DB_HOST="localhost"
+    DB_USER="root"
+    DB_PASSWORD="SUA-SENHA"
+    DB_DATABASE="conecta"
+    PORT=3000
+    JWT_KEY="SUA-CHAVE-JWT"
+    ```
+
+4. Inicie o backend:
+    ```bash
+    npm start
+    ```
+
+5. Instale as dependências do frontend:
+    ```bash
+    cd ../frontend
+    npm install
+    ```
+
+6. Inicie o frontend:
+    ```bash
+    npm run dev
+    ```
+
+7. Acesse a aplicação em `http://localhost:3000`.
+
 ---
 
-## 📝 **Como Contribuir**
+## Licença
+Este projeto está licenciado sob a licença **MIT**.
 
-1. Faça um fork do projeto.
-2. Crie uma branch para sua feature:
-   ```bash
-   git checkout -b minha-feature
-   ```
-3. Commit suas alterações:
-   ```bash
-   git commit -m 'Adiciona nova feature'
-   ```
-4. Envie para a branch principal:
-   ```bash
-   git push origin minha-feature
-   ```
-5. Abra um Pull Request.
-
----
-
-## 📄 **Licença**
-
-Este projeto está sob a licença **MIT**.
