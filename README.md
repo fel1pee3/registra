@@ -46,7 +46,7 @@ Certifique-se de ter instalado:
 
 ### Criação do Banco de Dados
 
-#### BD `conecta`
+#### BD `registra`
 Cria o BD do projeto.
 ```bash
 CREATE DATABASE registra;
